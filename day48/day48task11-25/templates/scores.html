@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scores</title>
+</head>
+<body>
+     <h1>Scores:</h1>
+    <ul>
+        {% for score in scores %}
+            <li>
+                {{ loop.index }}. {{ score }}
+                {% if score > 80 %}
+                    - <strong style="color:green;">High Score</strong>
+                {% endif %}
+            </li>
+        {% else %}
+            <li>No scores available.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

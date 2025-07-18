@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Testimonials{% endblock %}
+
+{% block content %}
+<h1>User Testimonials</h1>
+
+<div class="testimonial-container">
+    {% for fb in feedbacks %}
+    <div class="testimonial-card">
+        <img src="{{ url_for('static', filename='images/' + fb.photo) }}" alt="{{ fb.name }}" class="profile-img">
+        <h3>{{ fb.name }}</h3>
+        <p class="comment">"{{ fb.comment }}"</p>
+        <div class="stars">
+            {% for _ in range(fb.rating) %}
+                <img src="{{ url_for('static', filename='images/star.png') }}" alt="★" class="star">
+            {% endfor %}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

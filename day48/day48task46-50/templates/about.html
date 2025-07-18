@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block title %}About Us{% endblock %}
+
+{% block content %}
+    <h1>About website</h1>
+    <p>content -static image from static images folder</p>
+    <img src="{{ url_for('static', filename='images/baby.png') }}" alt="baby img" width="200">
+{% endblock %}

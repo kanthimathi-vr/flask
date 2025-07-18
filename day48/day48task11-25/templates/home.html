@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-4">
+        <h1>Welcome, {{ username.capitalize() }}</h1>
+
+        <!-- 3. If statement -->
+        {% if logged_in %}
+            <p>You're logged in.</p>
+        {% else %}
+            <p>Please log in.</p>
+        {% endif %}
+
+        <!-- 2. For loop -->
+        <h3>Skills:</h3>
+        <ul>
+            {% for skill in skills %}
+                <li>{{ loop.index }}. {{ skill }}</li>
+            {% else %}
+                <li>No skills listed.</li>
+            {% endfor %}
+        </ul>
+
+        <!-- 8. Current Date -->
+        <p>Current date: {{ current_date.strftime('%Y-%m-%d %H:%M:%S') }}</p>
+
+        <!-- 9. Looping through dictionary -->
+        <h3>Profile Info:</h3>
+        <ul>
+            {% for key, value in profile.items() %}
+                <li><strong>{{ key }}:</strong> {{ value }}</li>
+            {% endfor %}
+        </ul>
+
+        <!-- 10. Dynamic message -->
+        <p>Welcome back, {{ name }}!</p>
+
+        <!-- 11. Conditional role-based display -->
+        {% if role == "admin" %}
+            <div class="alert alert-info">Admin Panel Access</div>
+        {% endif %}
+
+        <!-- 13. Capitalized name -->
+        <p>Your name: {{ name.capitalize() }}</p>
+
+        <!-- 14. Limit characters -->
+        <p>Description preview: {{ description[:50] }}...</p>
+
+        <!-- 15. Safe HTML -->
+        <div>{{ html_message | safe }}</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Latest News{% endblock %}
+
+{% block content %}
+<h1>Latest News Headlines</h1>
+
+<ul class="news-list">
+  {% for item in news_list %}
+    <li class="news-item {{ item.category|lower }}">
+      {% if item.is_breaking %}
+        <span class="breaking">BREAKING:</span>
+      {% endif %}
+      <strong>{{ item.headline }}</strong>
+      <br>
+      <small>{{ item.datetime.strftime("%Y-%m-%d %H:%M") }} | Category: {{ item.category }}</small>
+    </li>
+  {% else %}
+    <li>No news available at the moment.</li>
+  {% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+  <section class="intro">
+    <img src="{{ url_for('static', filename='images/profile.jpg') }}" alt="Profile Picture" class="profile-pic" />
+    <h1>Hello, I'm {{ name }}.</h1>
+    {% if available_for_hire %}
+      <p class="hire-msg">Available for hire!</p>
+    {% endif %}
+    <h2>Skills</h2>
+    <ul>
+      {% for skill in skills %}
+        <li>{{ skill }}</li>
+      {% endfor %}
+    </ul>
+  </section>
+{% endblock %}

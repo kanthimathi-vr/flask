@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Daily Weather Report{% endblock %}
+
+{% block content %}
+  <h1>Weather in {{ weather.city }} - {{ weather.date }}</h1>
+
+  <div class="weather-summary">
+    <img src="{{ url_for('static', filename='images/' + ('sun.png' if weather.condition == 'sunny' else 'rain.png')) }}" 
+         alt="{{ weather.condition }}" class="weather-icon" />
+    <p>Temperature: {{ weather.temperature }}°C</p>
+    <p>Humidity: {{ weather.humidity }}%</p>
+
+    {% if weather.temperature > 30 %}
+      <p class="warning">🌞 Stay Hydrated!</p>
+    {% endif %}
+  </div>
+
+  <div>
+    <canvas id="tempChart" width="600" height="300"></canvas>
+  </div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+<script>
+  const tempData = Number("{{ weather.temperature }}");
+  drawTempChart(tempData);
+</script>
+
+
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Team Achievements{% endblock %}
+
+{% block content %}
+<h1>Team Achievements Timeline</h1>
+
+<div class="timeline">
+    {% for year, items in data.items() %}
+    <div class="year-block {% if year == current_year %}current-year{% endif %}">
+        <h2>{{ year }}</h2>
+        <ul>
+            {% for item in items %}
+            <li>
+                <img src="{{ url_for('static', filename='icons/' ~ item.icon) }}" alt="Icon" class="icon">
+                {{ item.title }}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

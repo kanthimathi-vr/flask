@@ -1,0 +1,22 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    color: #2c3e50;
+}
+
+.navbar {
+    background-color: #007bff;
+}
+
+.nav-link {
+    color: white !important;
+}
+.warning {
+    color: red;
+    font-weight: bold;
+}

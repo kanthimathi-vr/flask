@@ -1,0 +1,23 @@
+.grade-a {
+  color: #28a745;  /* green */
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.grade-b {
+  color: #ffc107; /* amber */
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.grade-c {
+  color: #fd7e14; /* orange */
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.grade-other {
+  color: #6c757d; /* gray */
+  font-weight: bold;
+  font-size: 1.2rem;
+}

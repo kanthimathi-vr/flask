@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Recommended Movies{% endblock %}
+
+{% block content %}
+<h1>Recommended Movies</h1>
+<div class="movies-grid">
+  {% for movie in movies %}
+    <div class="movie-card">
+      <img src="{{ url_for('static', filename=movie.poster) }}" alt="{{ movie.title }} poster" />
+      <h3>{{ movie.title }}</h3>
+      {% if movie.new_release %}
+        <span class="new-release-tag">New Release</span>
+      {% endif %}
+      <div class="rating">
+        {% for _ in range(movie.rating) %}
+          <img src="{{ url_for('static', filename='images/star.png') }}" alt="star" class="star-icon"/>
+        {% endfor %}
+      </div>
+    </div>
+  {% else %}
+    <p>No movies available.</p>
+  {% endfor %}
+</div>
+{% endblock %}

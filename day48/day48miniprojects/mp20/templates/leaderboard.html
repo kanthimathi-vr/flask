@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Leaderboard{% endblock %}
+
+{% block content %}
+<h1>User Leaderboard</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Rank</th>
+            <th>Name</th>
+            <th>Score</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for user in leaderboard %}
+        <tr {% if loop.first %}style="background-color: gold;"{% endif %}>
+            <td>
+                <img src="{{ url_for('static', filename='images/rank' + loop.index|string + '.png') }}" 
+                     alt="Rank {{ loop.index }}" width="30">
+            </td>
+            <td>{{ user.name }}</td>
+            <td>{{ user.score }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

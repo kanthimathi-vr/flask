@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}My Flask App{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- Optional: link to custom font -->
+    <!-- <style>
+        @font-face {
+            font-family: 'CustomFont';
+            src: url('{{ url_for('static', filename='fonts/custom-font.ttf') }}');
+        }
+        body {
+            font-family: 'CustomFont', Arial, sans-serif;
+        }
+    </style> -->
+</head>
+<body>
+    <nav>
+        <a href="/">Home</a> |
+        <a href="/courses">Courses</a>
+    </nav>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>

@@ -1,0 +1,36 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    text-align: center;
+    padding: 20px;
+}
+
+nav {
+    background-color: #333;
+    padding: 10px;
+}
+
+nav a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+.event-container {
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+    margin-top: 30px;
+    display: inline-block;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+#countdown {
+    font-size: 1.5em;
+    margin-top: 20px;
+}
+
+.event-started {
+    color: green;
+    font-size: 2em;
+}

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}{{ name }}'s Profile{% endblock %}
+
+{% block content %}
+<div class="profile-card">
+    <img src="{{ url_for('static', filename='images/profiles/' + image_file) }}" alt="{{ name }}" class="profile-pic">
+    <h2>{{ name }}</h2>
+    <p><strong>Joined:</strong> {{ joined }}</p>
+    <p>{{ bio }}</p>
+
+    {% if new_user %}
+        <p class="new-user-badge">🌟 New User!</p>
+    {% endif %}
+</div>
+{% endblock %}

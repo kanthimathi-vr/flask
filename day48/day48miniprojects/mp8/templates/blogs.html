@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Blog Reader{% endblock %}
+
+{% block content %}
+<h1>Latest Blog Posts</h1>
+<div class="blogs-container">
+  {% for blog in blogs %}
+    <div class="blog-card {% if blog.featured %}featured{% endif %}">
+      {% if blog.featured %}
+        <img src="{{ url_for('static', filename='images/featured-badge.png') }}" alt="Featured" class="featured-badge">
+      {% endif %}
+      <h2>{{ blog.title }}</h2>
+      <p class="author">by {{ blog.author }}</p>
+      <p class="snippet">{{ blog.snippet }}</p>
+    </div>
+  {% else %}
+    <p>No blog posts available.</p>
+  {% endfor %}
+</div>
+{% endblock %}

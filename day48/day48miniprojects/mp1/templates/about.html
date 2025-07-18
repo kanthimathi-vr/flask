@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}About{% endblock %}
+
+{% block content %}
+  <h1>About Me</h1>
+  <p>Hi, I'm {{ name }}. I am a passionate developer skilled in web development and software engineering.</p>
+  <h3>Skills:</h3>
+  <ul>
+    {% for skill in skills %}
+      <li>{{ skill }}</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}{{ event_name }} Countdown{% endblock %}
+
+{% block content %}
+<div class="event-container">
+    <h1>{{ event_name }}</h1>
+
+    {% if event_started %}
+        <h2 class="event-started">🎉 Event Started!</h2>
+    {% else %}
+        <div id="countdown" data-event-date="{{ event_date }}">
+            <span id="days">00</span> Days
+            <span id="hours">00</span> Hours
+            <span id="minutes">00</span> Minutes
+            <span id="seconds">00</span> Seconds
+        </div>
+    {% endif %}
+</div>
+{% endblock %}
