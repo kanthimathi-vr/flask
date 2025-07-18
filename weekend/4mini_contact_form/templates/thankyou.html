@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}Thank You{% endblock %}
+{% block content %}
+<div class="thank-you-box shadow-lg text-darkgreen">
+    <h2 class="fw-bold">Thank You, {{ name }}! 💚</h2>
+    <p>We've received your message and will respond shortly.</p>
+    <hr>
+    <p><strong>Email:</strong> {{ email }}</p>
+    <p><strong>Your Message:</strong></p>
+    <blockquote class="blockquote">
+        <p>{{ message }}</p>
+    </blockquote>
+</div>
+{% endblock %}

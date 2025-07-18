@@ -1,0 +1,25 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fff8f0;
+    color: #6a3e00; /* dark orange-brown */
+}
+
+.bg-orange {
+    background-color: #ff6700 !important;
+}
+
+.navbar-brand, .nav-link {
+    color: #fff !important;
+    font-weight: 600;
+}
+
+.student-card {
+    background-color: #fff1e0;
+    border-radius: 14px;
+    border: 2px solid #ff6700;
+    color: #6a3e00;
+}
+
+.text-orange {
+    color: #ff6700;
+}

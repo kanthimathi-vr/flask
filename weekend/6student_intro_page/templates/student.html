@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}Student Introduction{% endblock %}
+
+{% block content %}
+<div class="card student-card mx-auto shadow p-4" style="max-width: 480px;">
+    <h2 class="card-title text-orange fw-bold mb-3">Hello, I'm {{ name }}!</h2>
+    <p class="card-text">
+        <strong>Age:</strong> {{ age }}<br />
+        <strong>Course:</strong> {{ course }}
+    </p>
+    <p class="card-text mt-3">
+        This is a brief introduction card showing dynamic route and query parameters in Flask.
+    </p>
+</div>
+{% endblock %}

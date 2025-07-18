@@ -1,0 +1,41 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #fff0f5; /* light pink background */
+    color: darkgreen;
+}
+
+.text-darkgreen {
+    color: darkgreen !important;
+}
+
+.contact-card {
+    background-color: #ffe6f0; /* soft pink */
+    border-radius: 12px;
+    border: 1px solid #f8cce0;
+}
+
+.btn-darkgreen {
+    background-color: darkgreen;
+    color: white;
+    font-weight: 500;
+}
+
+.btn-darkgreen:hover {
+    background-color: #065f3e;
+}
+
+.thank-you-box {
+    background-color: #d0f0c0; /* light green */
+    padding: 40px;
+    border-radius: 12px;
+    color: darkgreen;
+    text-align: center;
+}
+
+.blockquote {
+    background-color: #f4fff5;
+    padding: 10px 20px;
+    border-left: 5px solid darkgreen;
+    margin-top: 20px;
+    font-style: italic;
+}

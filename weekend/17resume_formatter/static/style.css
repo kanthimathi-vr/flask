@@ -1,0 +1,95 @@
+body {
+    font-family: "Georgia", serif;
+    background: #f9f9f9;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 700px;
+    margin: 0 auto;
+    background: white;
+    padding: 30px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #444;
+    margin-bottom: 40px;
+}
+
+.resume h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+    color: #222;
+}
+
+.resume p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.resume h3 {
+    margin-top: 30px;
+    font-size: 22px;
+    border-bottom: 2px solid #888;
+    padding-bottom: 5px;
+    color: #555;
+}
+
+.resume-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.resume-form label {
+    font-weight: bold;
+}
+
+.resume-form input[type="text"],
+.resume-form input[type="email"],
+.resume-form textarea {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    resize: vertical;
+}
+
+.resume-form button {
+    width: 180px;
+    padding: 12px;
+    background-color: #3a7bd5;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.resume-form button:hover {
+    background-color: #2a5cab;
+}
+
+.back-btn {
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #666;
+}
+
+@media print {
+    body, .container {
+        box-shadow: none;
+        margin: 0;
+        padding: 0;
+        background: white;
+    }
+    .back-btn, form {
+        display: none;
+    }
+}

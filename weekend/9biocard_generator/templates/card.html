@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card">
+    <h2>{{ name }} ({{ age }} years old)</h2>
+    <h3>Hobbies:</h3>
+    <ul>
+        {% for hobby in hobbies %}
+            <li>{{ hobby }}</li>
+        {% endfor %}
+    </ul>
+    <a href="/" class="back-btn">← Back</a>
+</div>
+{% endblock %}

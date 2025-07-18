@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% if hour is not none %}
+        <p class="greeting">{{ greeting }}! It is {{ hour }} o'clock.</p>
+    {% else %}
+        <p>Please provide an hour in the URL, like <code>?hour=9</code>.</p>
+    {% endif %}
+{% endblock %}

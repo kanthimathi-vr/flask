@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}Pick Your Color{% endblock %}
+
+{% block content %}
+<h2 class="text-center mb-4 text-darkgreen">🎨 Color Picker Preview</h2>
+
+<div class="card p-4 mx-auto form-card shadow-sm" style="max-width: 450px;">
+    <form method="POST" action="{{ url_for('index') }}">
+        <label for="color_input" class="form-label text-darkgreen">Enter a color name or hex code:</label>
+        <input
+            type="text"
+            id="color_input"
+            name="color_input"
+            class="form-control mb-3"
+            placeholder="e.g., red or #ff0000"
+            value="{{ color if submitted else '' }}"
+            required
+        />
+        <button type="submit" class="btn btn-darkgreen w-100">Show Color</button>
+    </form>
+</div>
+
+<div class="preview-box shadow mt-5 text-darkgreen">
+    {% if submitted %}
+    <h4 class="mb-3">Color Preview</h4>
+    {% else %}
+    <h4 class="mb-3">Default Color Preview</h4>
+    {% endif %}
+    <div
+        class="color-display mx-auto"
+        style="background-color: '{{ color | default('#ff69b4') }}';"
+        title="Color preview of {{ color | default('default color') }}"
+    ></div>
+    <p class="mt-3">
+        {% if submitted %}
+        You picked: <strong>{{ color }}</strong>
+        {% else %}
+        Showing default color: <strong>{{ color }}</strong>
+        {% endif %}
+    </p>
+</div>
+{% endblock %}

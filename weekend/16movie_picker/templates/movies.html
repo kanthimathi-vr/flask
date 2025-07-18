@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}{{ genre }} Movies{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h2>{{ genre }} Movies</h2>
+    {% if movies %}
+        <div class="movie-list">
+            {% for movie in movies %}
+                <div class="movie-card">{{ movie }}</div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>No movies available for this genre.</p>
+    {% endif %}
+</div>
+{% endblock %}

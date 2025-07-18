@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Survey Vote{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h2>What is your favorite programming language?</h2>
+    <form method="POST">
+        <div class="form-option">
+            <input type="radio" name="vote" value="Python" required> Python
+        </div>
+        <div class="form-option">
+            <input type="radio" name="vote" value="JavaScript"> JavaScript
+        </div>
+        <div class="form-option">
+            <input type="radio" name="vote" value="Java"> Java
+        </div>
+        <div class="form-option">
+            <input type="radio" name="vote" value="C++"> C++
+        </div>
+        <button type="submit" class="btn-submit">Submit Vote</button>
+    </form>
+</div>
+{% endblock %}

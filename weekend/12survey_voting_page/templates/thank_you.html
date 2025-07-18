@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Thank You{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h2>Thank You for Voting!</h2>
+    <p>You voted for: <strong>{{ choice }}</strong></p>
+
+    {% if choice == 'Python' %}
+        <p>🐍 Great choice! Python is loved for its simplicity and power.</p>
+    {% elif choice == 'JavaScript' %}
+        <p>🌐 JavaScript powers the web — you're thinking frontend and beyond!</p>
+    {% elif choice == 'Java' %}
+        <p>☕ Java is a solid pick — classic and powerful!</p>
+    {% elif choice == 'C++' %}
+        <p>⚙️ C++ means you're not afraid of performance and control!</p>
+    {% else %}
+        <p>🤔 No valid vote received.</p>
+    {% endif %}
+</div>
+{% endblock %}

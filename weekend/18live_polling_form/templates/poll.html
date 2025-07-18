@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Participate in Poll{% endblock %}
+
+{% block content %}
+<div class="card form-card">
+    <h2>{{ question }}</h2>
+    <form method="POST">
+        {% for option in options %}
+            <div class="option">
+                <input type="radio" id="{{ option }}" name="choice" value="{{ option }}" required />
+                <label for="{{ option }}">{{ option }}</label>
+            </div>
+        {% endfor %}
+        <button type="submit">Submit</button>
+    </form>
+</div>
+{% endblock %}

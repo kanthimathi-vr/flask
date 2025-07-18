@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block title %}Greeting for {{ name }}{% endblock %}
+{% block content %}
+<div class="greeting-box">
+    <h1>{{ greeting }}, {{ name }}!</h1>
+    <p class="time-text">It's a beautiful {{ time_of_day.lower() }}.</p>
+    <blockquote class="quote">“{{ quote }}”</blockquote>
+</div>
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}Poll Result{% endblock %}
+
+{% block content %}
+<div class="card result-card">
+    <h2>Thank you for your response!</h2>
+    <p>Your choice: <span class="highlight {{ choice | lower }}">{{ choice }}</span></p>
+</div>
+{% endblock %}

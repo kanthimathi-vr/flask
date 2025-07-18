@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form method="POST" class="email-form">
+    <label for="title">Email Title:</label>
+    <input type="text" id="title" name="title" placeholder="Enter email title" required />
+
+    <label for="body">Email Body (use {{ '{{ username }}' }} etc. as placeholders):</label>
+    <textarea id="body" name="body" rows="10" placeholder="Enter email body" required></textarea>
+
+    <button type="submit">Preview Email</button>
+</form>
+{% endblock %}

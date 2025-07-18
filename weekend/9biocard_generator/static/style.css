@@ -1,0 +1,77 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to right, #ffecd2, #fcb69f);
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 40px;
+}
+
+.bio-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.bio-form input, .bio-form button {
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+}
+
+.bio-form button {
+    background-color: #ff7e5f;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.bio-form button:hover {
+    background-color: #e65c41;
+}
+
+.card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    text-align: left;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.card h2 {
+    margin-top: 0;
+    color: #ff5e57;
+}
+
+.card ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.card li {
+    background-color: #f7f7f7;
+    padding: 10px;
+    margin: 6px 0;
+    border-radius: 6px;
+}
+
+.back-btn {
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #555;
+}

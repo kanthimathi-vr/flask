@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Resume Formatter</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/resume.css') }}" />
+</head>
+<body>
+    <div class="container">
+        <h1>Resume Formatter</h1>
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

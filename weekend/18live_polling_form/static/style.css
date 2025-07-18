@@ -1,0 +1,95 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f4f8;
+    color: #333;
+}
+
+.navbar {
+    background-color: #5c6bc0;
+    padding: 15px 0;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+}
+
+.container {
+    width: 90%;
+    max-width: 600px;
+    margin: auto;
+}
+
+.nav-logo {
+    color: white;
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-decoration: none;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+.card {
+    background-color: white;
+    padding: 25px 30px;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    margin-top: 40px;
+    text-align: center;
+}
+
+.form-card h2 {
+    margin-bottom: 25px;
+}
+
+.option {
+    margin: 10px 0;
+    font-size: 1.2rem;
+    text-align: left;
+}
+
+.option input[type="radio"] {
+    margin-right: 10px;
+}
+
+button {
+    margin-top: 20px;
+    background-color: #5c6bc0;
+    border: none;
+    color: white;
+    padding: 10px 40px;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #3949ab;
+}
+
+/* Highlight classes for choices */
+.highlight {
+    font-weight: bold;
+    padding: 8px 15px;
+    border-radius: 20px;
+    color: white;
+}
+
+.highlight.yes {
+    background-color: #43a047;  /* green */
+}
+
+.highlight.no {
+    background-color: #e53935;  /* red */
+}
+
+.highlight.maybe {
+    background-color: #fbc02d;  /* yellow */
+}
+
+/* Fallback highlight if no matching class */
+.highlight {
+    background-color: #999;
+}

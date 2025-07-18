@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}Contact Us{% endblock %}
+{% block content %}
+<h2 class="text-center mb-4 text-darkgreen">💬 Contact Us</h2>
+<div class="card p-4 shadow-sm contact-card">
+    <form method="POST" action="{{ url_for('contact') }}">
+        <div class="mb-3">
+            <label class="form-label text-darkgreen">Your Name</label>
+            <input type="text" name="name" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label text-darkgreen">Email Address</label>
+            <input type="email" name="email" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label text-darkgreen">Message</label>
+            <textarea name="message" class="form-control" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-darkgreen">Send</button>
+    </form>
+</div>
+{% endblock %}

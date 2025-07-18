@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form method="POST" class="bio-form">
+    <label>Name:</label>
+    <input type="text" name="name" required>
+
+    <label>Age:</label>
+    <input type="number" name="age" required>
+
+    <label>Hobbies (comma-separated):</label>
+    <input type="text" name="hobbies" required>
+
+    <button type="submit">Generate Bio Card</button>
+</form>
+{% endblock %}

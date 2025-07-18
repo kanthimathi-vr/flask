@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}{{ genre }} Books{% endblock %}
+
+{% block content %}
+<div class="recommendations">
+    <h2>Recommended {{ genre }} Books</h2>
+    {% if books %}
+        <div class="book-list">
+            {% for book in books %}
+                <div class="book-card">{{ book }}</div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>No books found for this genre. Try another one.</p>
+    {% endif %}
+</div>
+{% endblock %}

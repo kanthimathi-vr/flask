@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Weather in {{ city }}{% endblock %}
+
+{% block content %}
+<div class="weather-card">
+    <h2>Weather in {{ city }}</h2>
+    <div class="weather-info">
+        <div class="weather-icon">
+            {% if condition == 'sunny' %}
+                <img src="{{ url_for('static', filename='images/sunny.png') }}" alt="Sunny">
+            {% elif condition == 'rainy' %}
+                <img src="{{ url_for('static', filename='images/rainy.png') }}" alt="Rainy">
+            {% elif condition == 'cloudy' %}
+                <img src="{{ url_for('static', filename='images/cloudy.png') }}" alt="Cloudy">
+            {% elif condition == 'snow' %}
+                <img src="{{ url_for('static', filename='images/snow.png') }}" alt="Snow">
+            {% else %}
+                <p>Unknown weather</p>
+            {% endif %}
+        </div>
+        <p class="temperature">Temperature: {{ temp }} {{ unit }}</p>
+        <p class="condition-text">Condition: {{ condition.title() }}</p>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}{{ user.name }}'s Portfolio{% endblock %}
+{% block content %}
+<div class="profile-card">
+    <div class="profile-header">
+        <div class="avatar"></div>
+        <div>
+            <h2>{{ user.name }}</h2>
+            <p class="bio">{{ user.bio }}</p>
+        </div>
+    </div>
+    <h3>Skills</h3>
+    <div class="skills">
+        {% for skill in user.skills %}
+            <span class="skill">{{ skill }}</span>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
