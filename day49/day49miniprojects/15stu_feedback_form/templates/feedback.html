@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Student Feedback Form</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+    <div class="form-container">
+        <h2>Student Feedback Form</h2>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="flash-message {{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <form method="POST">
+            {{ form.hidden_tag() }}
+
+            <div class="form-group">
+                {{ form.name.label }}
+                {{ form.name(class_="{}{}".format('error-field' if form.name.errors else '', '')) }}
+                {% for error in form.name.errors %}
+                    <div class="error">{{ error }}</div>
+                {% endfor %}
+            </div>
+
+            <div class="form-group">
+                {{ form.email.label }}
+                {{ form.email(class_="{}{}".format('error-field' if form.email.errors else '', '')) }}
+                {% for error in form.email.errors %}
+                    <div class="error">{{ error }}</div>
+                {% endfor %}
+            </div>
+
+            <div class="form-group">
+                {{ form.course.label }}
+                {{ form.course(class_="{}{}".format('error-field' if form.course.errors else '', '')) }}
+                {% for error in form.course.errors %}
+                    <div class="error">{{ error }}</div>
+                {% endfor %}
+            </div>
+
+            <div class="form-group">
+                {{ form.rating.label }}
+                {{ form.rating(class_="{}{}".format('error-field' if form.rating.errors else '', '')) }}
+                {% for error in form.rating.errors %}
+                    <div class="error">{{ error }}</div>
+                {% endfor %}
+            </div>
+
+            <div class="form-group">
+                {{ form.suggestion.label }}
+                {{ form.suggestion(rows=4) }}
+            </div>
+
+            {{ form.submit(class_="btn btn-primary") }}
+        </form>
+    </div>
+</body>
+</html>

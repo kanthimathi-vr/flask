@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Error Handling Form</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h2>User Form with Error Handling</h2>
+
+    <!-- 🛑 Display all errors at the top -->
+    {% if form.errors %}
+        <div class="flash flash-error">
+            <strong>Form has the following errors:</strong>
+            <ul>
+                {% for field_errors in form.errors.values() %}
+                    {% for error in field_errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% for category, message in messages %}
+            <div class="flash flash-{{ category }}">{{ message }}</div>
+        {% endfor %}
+    {% endwith %}
+
+    <form method="POST">
+        {{ form.hidden_tag() }}
+
+        <div class="form-group">
+            {{ form.name.label }}
+            {{ form.name(class_='error' if form.name.errors else '') }}
+        </div>
+
+        <div class="form-group">
+            {{ form.email.label }}
+            {{ form.email(class_='error' if form.email.errors else '') }}
+        </div>
+
+        <div class="form-group">
+            {{ form.password.label }}
+            {{ form.password(class_='error' if form.password.errors else '') }}
+        </div>
+
+        {{ form.submit(class_='submit-btn') }}
+    </form>
+</div>
+</body>
+</html>

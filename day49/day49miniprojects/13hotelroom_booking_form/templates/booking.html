@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Hotel Room Booking</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+    <div class="form-container">
+        <h2>Hotel Room Booking Form</h2>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="flash-message {{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <form method="POST">
+            {{ form.hidden_tag() }}
+
+            <div class="form-group">
+                {{ form.full_name.label }}
+                {{ form.full_name(class_="{}{}".format('error-field' if form.full_name.errors else '', '')) }}
+                {% for error in form.full_name.errors %}
+                    <div class="error">{{ error }}</div>
+                {% endfor %}
+            </div>
+
+            <div class="form-group">
+                {{ form.email.label }}
+                {{ form.email(class_="{}{}".format('error-field' if form.email.errors else '', '')) }}
+                {% for error in form.email.errors %}
+                    <div class="error">{{ error }}</div>
+                {% endfor %}
+            </div>
+
+            <div class="form-group">
+                {{ form.room_type.label }}
+                {{ form.room_type(class_="{}{}".format('error-field' if form.room_type.errors else '', '')) }}
+                {% for error in form.room_type.errors %}
+                    <div class="error">{{ error }}</div>
+                {% endfor %}
+            </div>
+
+            <div class="form-group">
+                {{ form.nights.label }}
+                {{ form.nights(class_="{}{}".format('error-field' if form.nights.errors else '', '')) }}
+                {% for error in form.nights.errors %}
+                    <div class="error">{{ error }}</div>
+                {% endfor %}
+            </div>
+
+            {{ form.submit(class_="btn btn-primary") }}
+        </form>
+    </div>
+</body>
+</html>

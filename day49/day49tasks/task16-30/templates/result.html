@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Submission Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Form Submitted!</h2>
+        <p><strong>Name:</strong> {{ form.name.data }}</p>
+        <p><strong>Email:</strong> {{ form.email.data }}</p>
+        <p><strong>Username:</strong> {{ form.username.data }}</p>
+        <p><strong>Age:</strong> {{ form.age.data }}</p>
+        <p><strong>Message:</strong> {{ form.message.data }}</p>
+        <p><strong>Gender:</strong> {{ form.gender.data }}</p>
+        <p><strong>Country:</strong> {{ form.country.data }}</p>
+        <p><strong>Date:</strong> {{ form.date.data }}</p>
+        <p><strong>Number:</strong> {{ form.number.data }}</p>
+        <a href="{{ url_for('success') }}">Go to Success Page</a>
+    </div>
+</body>
+</html>

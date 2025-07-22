@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head><title>Flask-WTF Form</title></head>
+<body>
+    <h2>User Input Form</h2>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        <p>{{ form.name.label }} {{ form.name() }}</p>
+        <p>{{ form.email.label }} {{ form.email() }}</p>
+        <p>{{ form.message.label }} {{ form.message() }}</p>
+        <p>{{ form.gender.label }} {{ form.gender() }}</p>
+        <p>{{ form.country.label }} {{ form.country() }}</p>
+        <p>{{ form.terms() }} {{ form.terms.label }}</p>
+        <p>{{ form.password.label }} {{ form.password() }}</p>
+        <p>{{ form.confirm_password.label }} {{ form.confirm_password() }}</p>
+        <p>{{ form.date.label }} {{ form.date() }}</p>
+        <p>{{ form.number.label }} {{ form.number() }}</p>
+        <p>{{ form.submit() }}</p>
+    </form>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flask Form</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h2>User Registration Form</h2>
+
+        {% if error_count %}
+            <div class="error-summary">
+                There {{ 'is' if error_count == 1 else 'are' }} {{ error_count }} error{{ '' if error_count == 1 else 's' }} in your form.
+            </div>
+        {% endif %}
+
+        <form method="POST">
+            {{ form.hidden_tag() }}
+
+            {% for field in form if field.type not in ['CSRFToken', 'SubmitField'] %}
+                <div class="form-group">
+                    {{ field.label }}
+                    {{ field(class_='error' if field.errors else '') }}
+                    {% for error in field.errors %}
+                        <div class="error-text">{{ error }}</div>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+
+            <button type="submit" class="submit-btn">{{ form.submit.label.text }}</button>
+        </form>
+    </div>
+</body>
+</html>
