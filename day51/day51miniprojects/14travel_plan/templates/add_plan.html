@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Add Travel Plan</h2>
+<form method="POST">
+  {{ form.hidden_tag() }}
+  <div class="mb-3">
+    {{ form.place.label(class="form-label") }}
+    {{ form.place(class="form-control") }}
+  </div>
+  <div class="mb-3">
+    {{ form.travel_date.label(class="form-label") }}
+    {{ form.travel_date(class="form-control") }}
+    <small class="form-text text-muted">Format: YYYY-MM-DD</small>
+  </div>
+  <div class="mb-3">
+    {{ form.reason.label(class="form-label") }}
+    {{ form.reason(class="form-control", rows="3") }}
+  </div>
+  <button type="submit" class="btn btn-success">{{ form.submit.label.text }}</button>
+  <a href="{{ url_for('dashboard') }}" class="btn btn-secondary">Back</a>
+</form>
+{% endblock %}

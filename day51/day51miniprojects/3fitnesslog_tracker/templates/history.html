@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Workout History</h2>
+{% if logs %}
+  <ul class="list-group">
+    {% for log in logs %}
+      <li class="list-group-item">
+        <strong>{{ log.date.strftime('%Y-%m-%d') }}</strong>: {{ log.type }} —
+        {% if log.steps %}{{ log.steps }} steps{% endif %}
+        {% if log.hours %}{{ log.hours }} hrs{% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>No logs yet. <a href="{{ url_for('dashboard') }}">Log one now!</a></p>
+{% endif %}
+{% endblock %}

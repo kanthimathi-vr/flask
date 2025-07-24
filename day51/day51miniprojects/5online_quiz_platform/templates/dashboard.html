@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Your Quiz History</h2>
+{% if results %}
+  <table class="table">
+    <thead>
+      <tr><th>Date</th><th>Score</th><th>Total</th></tr>
+    </thead>
+    <tbody>
+      {% for r in results %}
+        <tr>
+          <td>{{ r.date_taken.strftime('%Y-%m-%d %H:%M') }}</td>
+          <td>{{ r.score }}</td>
+          <td>{{ r.total }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% else %}
+  <p>No quizzes taken yet. <a href="{{ url_for('quiz') }}">Take one now!</a></p>
+{% endif %}
+{% endblock %}

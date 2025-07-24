@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>All Feedback</h2>
+{% if feedbacks %}
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>User</th>
+        <th>Feedback</th>
+        <th>Submitted At</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for fb in feedbacks %}
+      <tr>
+        <td>{{ fb.user.username }}</td>
+        <td>{{ fb.content }}</td>
+        <td>{{ fb.submitted_at.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% else %}
+  <p>No feedback submitted yet.</p>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h2>Your Journal Entries</h2>
+  <a href="{{ url_for('new_entry') }}" class="btn btn-success">New Entry</a>
+</div>
+
+{% if entries %}
+  <ul class="list-group">
+    {% for entry in entries %}
+      <li class="list-group-item">
+        <h5>{{ entry.title }}</h5>
+        <p>{{ entry.content[:200] }}{% if entry.content|length > 200 %}...{% endif %}</p>
+        <a href="{{ url_for('edit_entry', entry_id=entry.id) }}" class="btn btn-sm btn-primary">Edit</a>
+        <form action="{{ url_for('delete_entry', entry_id=entry.id) }}" method="POST" style="display:inline;">
+          <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Delete this entry?');">Delete</button>
+        </form>
+      </li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>You have no journal entries yet. Create one!</p>
+{% endif %}
+{% endblock %}

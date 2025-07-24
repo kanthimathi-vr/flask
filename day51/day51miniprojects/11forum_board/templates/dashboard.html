@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Your Threads</h2>
+{% if threads %}
+  <ul class="list-group">
+  {% for t in threads %}
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      <a href="{{ url_for('thread', thread_id=t.id) }}">{{ t.title }}</a>
+      <small class="text-muted">{{ t.timestamp.strftime('%Y-%m-%d %H:%M') }}</small>
+    </li>
+  {% endfor %}
+  </ul>
+{% else %}
+  <p>You have not posted any threads yet. <a href="{{ url_for('new_thread') }}">Create one now.</a></p>
+{% endif %}
+{% endblock %}

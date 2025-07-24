@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Your Reviews</h2>
+{% if reviews %}
+  <ul class="list-group">
+    {% for rev in reviews %}
+      <li class="list-group-item">
+        <strong>{{ rev.movie_title }}</strong> — {{ rev.rating }}/5
+        <br>
+        "{{ rev.comment }}"
+        <br>
+        <small>Posted on {{ rev.date.strftime('%Y-%m-%d') }}</small>
+      </li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>You haven't submitted any reviews yet.</p>
+{% endif %}
+{% endblock %}

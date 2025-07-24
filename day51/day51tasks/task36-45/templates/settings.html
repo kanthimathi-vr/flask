@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>User Settings</h2>
+<p><strong>Last login time:</strong> {{ session.get('last_login', 'N/A') }}</p>
+<p><strong>Session visit count:</strong> {{ session.get('visits', 0) }}</p>
+{% endblock %}

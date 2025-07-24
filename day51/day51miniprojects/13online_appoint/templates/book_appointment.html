@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Book New Appointment</h2>
+<form method="POST">
+  {{ form.hidden_tag() }}
+  <div class="mb-3">
+    {{ form.title.label(class="form-label") }}
+    {{ form.title(class="form-control") }}
+  </div>
+  <div class="mb-3">
+    {{ form.description.label(class="form-label") }}
+    {{ form.description(class="form-control", rows="3") }}
+  </div>
+  <div class="mb-3">
+    {{ form.appointment_date.label(class="form-label") }}
+    {{ form.appointment_date(class="form-control") }}
+    <small class="form-text text-muted">Format: YYYY-MM-DD HH:MM (24-hour)</small>
+  </div>
+  <button type="submit" class="btn btn-success">{{ form.submit.label.text }}</button>
+</form>
+{% endblock %}

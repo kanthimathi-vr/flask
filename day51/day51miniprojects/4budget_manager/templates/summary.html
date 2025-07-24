@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Expense Summary</h2>
+{% if summary %}
+  <table class="table">
+    <thead>
+      <tr><th>Category</th><th>Total Amount</th></tr>
+    </thead>
+    <tbody>
+      {% for cat, amt in summary.items() %}
+      <tr><td>{{ cat }}</td><td>{{ "%.2f"|format(amt) }}</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% else %}
+  <p>No expenses yet. <a href="{{ url_for('dashboard') }}">Add one</a>.</p>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>RSVP for: {{ event.name }}</h2>
+<p>Date: {{ event.date }} | Location: {{ event.location }}</p>
+<form method="POST">
+  {{ form.hidden_tag() }}
+  <div class="mb-3">
+    {{ form.status.label(class="form-label") }}
+    {{ form.status(class="form-select") }}
+  </div>
+  <button type="submit" class="btn btn-success">{{ form.submit.label.text }}</button>
+  <a href="{{ url_for('dashboard') }}" class="btn btn-secondary">Cancel</a>
+</form>
+{% endblock %}

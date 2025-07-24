@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Your Bug Reports</h2>
+
+{% if last_title %}
+  <p class="text-muted">Last submitted bug: <strong>{{ last_title }}</strong></p>
+{% endif %}
+
+{% if bugs %}
+  <ul class="list-group">
+  {% for bug in bugs %}
+    <li class="list-group-item">
+      <strong>{{ bug.title }}</strong><br>
+      Submitted on {{ bug.date_submitted.strftime('%Y-%m-%d %H:%M') }}<br>
+      <small>{{ bug.description }}</small>
+    </li>
+  {% endfor %}
+  </ul>
+{% else %}
+  <p>You haven't submitted any bugs yet.</p>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Dashboard</h2>
+
+<!-- Set monthly limit -->
+<h4>Monthly Spending Limit</h4>
+<form method="POST">
+  {{ lim_form.hidden_tag() }}
+  <div class="d-flex mb-3">
+    {{ lim_form.monthly_limit(class="form-control me-2") }}
+    {{ lim_form.set_limit(class="btn btn-outline-primary") }}
+  </div>
+</form>
+<p>Current limit: <strong>{{ limit if limit else 'Not set' }}</strong></p>
+
+<!-- Add expense -->
+<h4>New Expense</h4>
+<form method="POST">
+  {{ exp_form.hidden_tag() }}
+  <div class="mb-3">{{ exp_form.amt.label }}{{ exp_form.amt(class="form-control") }}</div>
+  <div class="mb-3">{{ exp_form.category.label }}{{ exp_form.category(class="form-control") }}</div>
+  {{ exp_form.submit(class="btn btn-primary") }}
+</form>
+
+<p class="mt-4">Total spent this month: <strong>{{ total }}</strong></p>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>All Borrowed Books (Admin)</h2>
+{% if borrows %}
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Book Title</th>
+      <th>Author</th>
+      <th>Borrow Date</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for borrow in borrows %}
+    <tr>
+      <td>{{ borrow.user.username }}</td>
+      <td>{{ borrow.book.title }}</td>
+      <td>{{ borrow.book.author }}</td>
+      <td>{{ borrow.borrow_date.strftime('%Y-%m-%d %H:%M') }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<p>No books have been borrowed yet.</p>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Dashboard</h2>
+<p>Welcome, {{ current_user.username }}!</p>
+<p>You have {{ book_count }} books tracked.</p>
+{% if last_viewed %}
+  <p>Last viewed book: <strong>{{ last_viewed }}</strong></p>
+{% endif %}
+<p>Use the menu to add or view your books.</p>
+{% endblock %}

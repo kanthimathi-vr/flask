@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Welcome, {{ current_user.username }}</h2>
+
+<h4>Your Borrowed Books</h4>
+{% if borrowed %}
+<ul class="list-group mb-4">
+  {% for b in borrowed %}
+  <li class="list-group-item">
+    <strong>{{ b.book.title }}</strong> by {{ b.book.author }} <br />
+    Borrowed on {{ b.borrow_date.strftime('%Y-%m-%d %H:%M') }}
+  </li>
+  {% endfor %}
+</ul>
+{% else %}
+<p>You haven't borrowed any books yet.</p>
+{% endif %}
+
+<h4>Recently Borrowed Books (Session)</h4>
+{% if recent %}
+<ul class="list-group">
+  {% for book in recent %}
+  <li class="list-group-item">{{ book.title }} by {{ book.author }}</li>
+  {% endfor %}
+</ul>
+{% else %}
+<p>No recent borrowed books tracked in session.</p>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Movie Reviews</h2>
+{% if reviews %}
+  <ul class="list-group">
+  {% for rev in reviews %}
+    <li class="list-group-item">
+      <a href="{{ url_for('movie', title=rev.movie_title) }}"><strong>{{ rev.movie_title }}</strong></a>
+      — Rated {{ rev.rating }}/5 by {{ rev.author.username }}
+    </li>
+  {% endfor %}
+  </ul>
+{% else %}
+  <p>No reviews yet. Be the first to review!</p>
+{% endif %}
+{% endblock %}

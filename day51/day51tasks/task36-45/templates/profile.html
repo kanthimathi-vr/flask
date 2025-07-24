@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Your Profile</h2>
+<ul>
+  <li>Username: {{ current_user.username }}</li>
+  <li>Email: {{ current_user.email }}</li>
+  <li>Total Logins: {{ current_user.login_count }}</li>
+</ul>
+{% endblock %}
+

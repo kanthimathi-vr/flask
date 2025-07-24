@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Add a New Book</h2>
+<form method="POST">
+  {{ form.hidden_tag() }}
+  <div class="mb-3">
+    {{ form.title.label(class="form-label") }}
+    {{ form.title(class="form-control") }}
+  </div>
+  <div class="mb-3">
+    {{ form.total_pages.label(class="form-label") }}
+    {{ form.total_pages(class="form-control") }}
+  </div>
+  <button type="submit" class="btn btn-primary">{{ form.submit.label.text }}</button>
+  <a href="{{ url_for('books') }}" class="btn btn-secondary">Back</a>
+</form>
+{% endblock %}

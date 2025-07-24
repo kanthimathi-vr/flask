@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>{{ thread.title }}</h2>
+<p class="text-muted">Posted on {{ thread.timestamp.strftime('%Y-%m-%d %H:%M') }}</p>
+<div class="mb-4">{{ thread.content|e }}</div>
+
+<h4>Comments</h4>
+{% if comments %}
+  <ul class="list-group mb-4">
+    {% for c in comments %}
+      <li class="list-group-item">
+        <strong>{{ c.author.username }}</strong> <small class="text-muted">{{ c.timestamp.strftime('%Y-%m-%d %H:%M') }}</small>
+        <p>{{ c.content|e }}</p>
+      </li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>No comments yet.</p>
+{% endif %}
+
+<h5>Add a Comment</h5>
+<form method="POST">
+  {{ form.hidden_tag() }}
+  <div class="mb-3">{{ form.content.label(class="form-label") }}{{ form.content(class="form-control", rows=3) }}</div>
+  <button type="submit" class="btn btn-primary">{{ form.submit.label.text }}</button>
+</form>
+
+{% endblock %}

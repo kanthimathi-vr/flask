@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Your Enrollments</h2>
+{% if enrollments %}
+  <ul class="list-group">
+  {% for e in enrollments %}
+    <li class="list-group-item">
+      {{ e.course.name }} — Enrolled on {{ e.date_enrolled.strftime('%Y-%m-%d %H:%M') }}
+    </li>
+  {% endfor %}
+  </ul>
+{% else %}
+  <p>You haven't enrolled in any courses yet.</p>
+{% endif %}
+{% endblock %}

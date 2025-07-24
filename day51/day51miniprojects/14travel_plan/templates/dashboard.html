@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Your Travel Plans (Total: {{ total_plans }})</h2>
+
+<form method="POST" class="row g-3 mb-4">
+  {{ form.hidden_tag() }}
+  <div class="col-auto">
+    {{ form.country(class="form-control", placeholder="Search by country") }}
+  </div>
+  <div class="col-auto">
+    <button type="submit" class="btn btn-info mb-3">{{ form.submit.label.text }}</button>
+  </div>
+</form>
+
+{% if plans %}
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Place</th>
+      <th>Travel Date</th>
+      <th>Reason</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for plan in plans %}
+    <tr>
+      <td>{{ plan.place }}</td>
+      <td>{{ plan.travel_date.strftime('%Y-%m-%d') }}</td>
+      <td>{{ plan.reason or '-' }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<p>No travel plans found.</p>
+{% endif %}
+{% endblock %}

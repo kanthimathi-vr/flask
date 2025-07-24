@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Available Courses</h2>
+<table class="table">
+  <thead><tr><th>Name</th><th>Description</th><th>Action</th></tr></thead>
+  <tbody>
+    {% for c in courses %}
+    <tr>
+      <td>{{ c.name }}</td>
+      <td>{{ c.description }}</td>
+      <td>
+        {% if c.id in enrolled_ids %}
+          <span class="badge bg-success">Enrolled</span>
+        {% else %}
+          <a href="{{ url_for('enroll', cid=c.id) }}" class="btn btn-sm btn-primary">Enroll</a>
+        {% endif %}
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

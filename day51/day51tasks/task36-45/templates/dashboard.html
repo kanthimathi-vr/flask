@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block content %}
+<h3>Welcome to Dashboard, {{ current_user.username }}!</h3>
+<p>Last login: {{ session.get('last_login') }}</p>
+<p>You have logged in {{ current_user.login_count }} times.</p>
+<p>Visits this session: {{ session.get('visits', 0) }}</p>
+{% endblock %}

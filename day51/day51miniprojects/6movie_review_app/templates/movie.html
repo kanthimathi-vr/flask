@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>{{ title }}</h2>
+{% if current_user.is_authenticated %}
+  <button class="btn btn-primary mb-3" data-bs-toggle="collapse" data-bs-target="#reviewForm">
+    Add Review
+  </button>
+  <div class="collapse" id="reviewForm">
+    <form method="POST" action="{{ url_for('add_review') }}">
+      {{ form.hidden_tag() }}
+      {{ form.movie_title(value=title, type="hidden") }}
+      <div class="mb-3">{{ form.rating.label }}{{ form.rating(class="form-control") }}</div>
+      <div class="mb-3">{{ form.comment.label }}{{ form.comment(class="form-control", rows="4") }}</div>
+      {{ form.submit(class="btn btn-success") }}
+    </form>
+  </div>
+{% else %}
+  <p><a href="{{ url_for('login') }}">Log in</a> to write a review.</p>
+{% endif %}
+
+<h3 class="mt-4">All Reviews</h3>
+{% if reviews %}
+  {% for rev in reviews %}
+    <div class="card mb-3">
+      <div class="card-body">
+        <h5>{{ rev.rating }}/5</h5>
+        <p>{{ rev.comment }}</p>
+        <small>By {{ rev.author.username }} on {{ rev.date.strftime('%Y-%m-%d') }}</small>
+      </div>
+    </div>
+  {% endfor %}
+{% else %}
+  <p>No reviews yet.</p>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Update Profile</h2>
+<form method="POST">
+  {{ form.hidden_tag() }}
+  <div class="mb-3">{{ form.username.label }} {{ form.username(class="form-control") }}</div>
+  <div class="mb-3">{{ form.current_password.label }} {{ form.current_password(class="form-control") }}</div>
+  <div class="mb-3">{{ form.new_password.label }} {{ form.new_password(class="form-control") }}</div>
+  <div class="mb-3">{{ form.confirm.label }} {{ form.confirm(class="form-control") }}</div>
+  {{ form.submit(class="btn btn-success") }}
+</form>
+{% endblock %}

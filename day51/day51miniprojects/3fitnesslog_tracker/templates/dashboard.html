@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Log a Workout</h2>
+<form method="POST">
+  {{ form.hidden_tag() }}
+  <div class="mb-3">{{ form.type.label }} {{ form.type(class="form-control") }}</div>
+  <div class="mb-3">{{ form.steps.label }} {{ form.steps(class="form-control") }}</div>
+  <div class="mb-3">{{ form.hours.label }} {{ form.hours(class="form-control") }}</div>
+  {{ form.submit(class="btn btn-primary") }}
+</form>
+<a href="{{ url_for('history') }}" class="btn btn-link mt-3">View History</a>
+{% endblock %}

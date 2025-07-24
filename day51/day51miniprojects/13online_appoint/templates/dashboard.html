@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Welcome, {{ current_user.username }}</h2>
+
+<h4>Your Appointments</h4>
+{% if appointments %}
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Date & Time</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for appointment in appointments %}
+    <tr>
+      <td>{{ appointment.title }}</td>
+      <td>{{ appointment.description or '-' }}</td>
+      <td>{{ appointment.appointment_date.strftime('%Y-%m-%d %H:%M') }}</td>
+      <td>
+        <a href="{{ url_for('update_appointment', appointment_id=appointment.id) }}" class="btn btn-sm btn-warning">Edit</a>
+        <form action="{{ url_for('cancel_appointment', appointment_id=appointment.id) }}" method="POST" style="display:inline;">
+          <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Cancel this appointment?');">Cancel</button>
+        </form>
+      </td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<p>You have no appointments scheduled.</p>
+{% endif %}
+{% endblock %}

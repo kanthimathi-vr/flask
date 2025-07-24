@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Available Books to Borrow</h2>
+{% if books %}
+<form method="POST">
+  <div class="mb-3">
+    <label for="bookSelect" class="form-label">Select Book:</label>
+    <select name="book_id" id="bookSelect" class="form-select" required>
+      {% for book in books %}
+      <option value="{{ book.id }}">{{ book.title }} by {{ book.author }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <button type="submit" class="btn btn-success">Borrow</button>
+</form>
+{% else %}
+<p>No books available to borrow right now.</p>
+{% endif %}
+{% endblock %}

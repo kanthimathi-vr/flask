@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Upcoming Events</h2>
+{% if events %}
+  <ul class="list-group">
+    {% for event in events %}
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        <div>
+          <strong>{{ event.name }}</strong><br />
+          Date: {{ event.date }}<br />
+          Location: {{ event.location }}
+        </div>
+        <a href="{{ url_for('rsvp', event_id=event.id) }}" class="btn btn-primary btn-sm align-self-center">RSVP</a>
+      </li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>No events available.</p>
+{% endif %}
+{% endblock %}

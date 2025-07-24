@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Your Quiz Results</h2>
+<p><strong>Score:</strong> {{ result.score }} / {{ result.total }}</p>
+<p><strong>Date:</strong> {{ result.date_taken.strftime('%Y-%m-%d %H:%M') }}</p>
+<a href="{{ url_for('dashboard') }}" class="btn btn-link">Back to Dashboard</a>
+{% endblock %}
